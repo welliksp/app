@@ -1,11 +1,11 @@
 name: app
 
 on:
-  pull_request:
+  push:
     branches:
-      - develop
       - main
-
+  pull_request:
+    types: [opened, synchronize, reopened]
 jobs:
   check-application:
     name: Build and analyze
