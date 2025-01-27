@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "tb_product")
@@ -15,6 +16,8 @@ public class Product implements Serializable {
     private String name;
     private String description;
     private BigDecimal value;
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
 
     public Long getId() {
         return id;
@@ -32,6 +35,10 @@ public class Product implements Serializable {
         return value;
     }
 
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -46,5 +53,9 @@ public class Product implements Serializable {
 
     public void setValue(BigDecimal value) {
         this.value = value;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 }
